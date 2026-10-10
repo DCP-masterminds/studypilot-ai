@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyPilot AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f5ff;
+      color: #172554;
+      text-align: center;
+      padding: 40px 15px;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+    }
+
+    textarea, select, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 110px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>StudyPilot AI 📚</h1>
+    <p>Your personal learning companion.</p>
+
+    <select id="subject">
+      <option>Science</option>
+      <option>Mathematics</option>
+      <option>English</option>
+    </select>
+
+    <select id="grade">
+      <option value="6">Grade 6</option>
+      <option value="7">Grade 7</option>
+      <option value="8" selected>Grade 8</option>
+      <option value="9">Grade 9</option>
+      <option value="10">Grade 10</option>
+    </select>
+
+    <textarea id="question"
+      placeholder="What would you like to learn?"></textarea>
+
+    <button onclick="getHelp()">Get Study Help</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function getHelp() {
+      const subject = document.getElementById("subject").value;
+      const grade = document.getElementById("grade").value;
+      const question = document.getElementById("question").value.trim();
+      const result = document.getElementById("result");
+
+      if (!question) {
+        result.textContent = "Please type a question first.";
+        return;
+      }
+
+      result.textContent =
+        "Your question: " + question +
+        "\nSubject: " + subject +
+        "\nGrade: " + grade +
+        "\n\nStudyPilot AI is getting ready to help you!";
+    }
+  </script>
+</body>
+</html>
